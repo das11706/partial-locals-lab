@@ -16,13 +16,10 @@ class Student < ActiveRecord::Base
 
   def self.search(query)
     if query
+      # byebug
       # name = Student.find_by(name: query)
       Student.where("name LIKE ?", "%#{query}%")
-      # if name
-      #   Student.where("name LIKE ?", "%#{query}%")
-      # else
-      #   @students = Student.all
-      # end
+     
     else
       @students = Student.all
     end
