@@ -17,7 +17,6 @@ class Student < ActiveRecord::Base
   def self.search(query)
     if query
       # byebug
-      # name = Student.find_by(name: query)
       Student.where("name LIKE ?", "%#{query}%")
      
     else
